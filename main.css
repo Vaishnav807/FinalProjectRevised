@@ -1,0 +1,480 @@
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+footer a img {
+    width: 75px;
+    height: auto;
+}
+
+.homePage {
+    background-color: black;
+}
+
+#home {
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+a {
+    font-family: monospace;
+    color: black;
+}
+
+a:hover{
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+#hint {
+    font-family: fantasy;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+
+#first{ 
+    background-color: red;
+    text-align: center;
+    font-size: 22px;
+}
+
+#second{
+    background-color: orange;
+    text-align: center;
+    font-size: 22px;
+}
+
+#third{
+    background-color: green;
+    text-align: center;
+    font-size: 22px;
+}
+
+#fourth{
+    background-color: skyblue;
+    text-align: center;
+    font-size: 22px;
+}
+
+#fifth{
+    background-color: palevioletred;
+    text-align: center;
+    font-size: 22px;
+}
+
+.firstContainer, .secondContainer {
+    display: flex;
+}
+
+.side-by-side{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px 5px;
+    flex: 1;
+    margin: 5px;
+}
+
+#note1, #note2, #note3, #note4, #note5 {
+    text-align: center;
+    height: 250px;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    position: relative;
+    padding: 15px;
+    font-size: 26px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Learned about this animation from a YouTube video and added my touch of making it work only after the user hovers over the note */
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#note1::after, #note1::before, #note2::after, #note2::before, #note3::after, #note3::before, #note4::after, #note4::before, #note5::after, #note5::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    border-radius: 15px;
+    padding: 10px;
+    animation: 3s spin linear infinite;
+    opacity: 0;
+}
+
+#note1::after {
+    background-image: conic-gradient(from var(--angle), transparent 70%, red);
+}
+
+#note2::after {
+    background-image: conic-gradient(from var(--angle), transparent 70%, orange);
+}
+
+#note3::after {
+    background-image: conic-gradient(from var(--angle), transparent 70%, green);
+}
+
+#note4::after {
+    background-image: conic-gradient(from var(--angle), transparent 70%, skyblue);
+}
+
+#note5::after {
+    background-image: conic-gradient(from var(--angle), transparent 70%, palevioletred);
+} 
+
+#note1::before, #note2::before, #note3::before, #note4::before, #note5::before {
+    filter: blur(1.5rem);
+    opacity: 0;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+#note1:hover::after, #note2:hover::after, #note3:hover::after, #note4:hover::after, #note5:hover::after {
+    opacity: 1;
+}
+
+#note1:hover::before, #note2:hover::before, #note3:hover::before, #note4:hover::before, #note5:hover::before {
+    opacity: 0.5;
+}
+
+/* Trivia options */
+
+.triviaPage {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+
+}
+
+.triviaPage .container{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+div.container{
+    display: flex;
+}
+
+#left { 
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+#center {
+    width: 33.33%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#right {
+    width: 33.33%;
+    float: right;
+    text-align: center;
+}
+
+#sub1 {
+    width: 100px;
+    height: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.crtAns {
+    font-size: 28px;
+}
+
+#sub1:hover {
+    transform: scale(1.05);
+    border: solid rgb(255, 255, 255);
+    background-color: tan;
+}
+
+/* car */
+
+.carPage {
+    text-align: center;
+    background: linear-gradient(to right, #2b5876, #4e4376);
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#firstWord{
+    font-size: 28px;
+    color: #ff7003;
+}
+
+.pic1 {
+    width: 500px;
+    height: 250px;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+.slider {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2rem;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    color: rgb(200, 200, 200);
+    border: none;
+}
+
+.prev-button {
+    left: -25px;
+}
+
+.next-button {
+    right: -25px;
+}
+
+.prev-button:hover, .next-button:hover {
+    color: white;
+}
+
+.carInfo {
+    font-family: cursive;
+}
+
+.carEngine, .carHp, .carTime, .carSpeed, .carPrice {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+/* guess the number */
+.numberPage {
+    background-color: beige;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.numberPage h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+
+.para {
+    text-align: center;
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+#container3 {
+    margin: auto;
+    padding-top: 20px;
+    border: solid black;
+    text-align: center;
+    width: 525px;
+    height: 375px;
+    border-radius: 25px;
+    background-color: teal;
+}
+
+#guess {
+    font-size: 28px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#guessField {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#sub2 {
+    background-color: orange;
+    border-radius: 15px;
+    width: 150px;
+    height: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+.guesses, .lastResult {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.lowOrHi {
+    background-color: orange;
+}
+
+.refresh {
+    font-family: 'Courier New', Courier, monospace;
+}    
+
+#sub:hover {
+    transform: scale(1.05);
+    border: 2px solid;
+}
+
+/* rock paper scissors */
+
+.rockPage {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    /*found this background color on youtube */
+    background: linear-gradient(
+        to right bottom,
+        rgb(0, 31, 131),
+        rgb(85, 15, 110), 
+        rgb(192, 0, 189) 
+    );
+    font-family: fantasy;
+}
+
+.rockPage h1 {
+    color: white;
+}
+
+#container4 {
+    margin: auto;
+    padding-top: 10px;
+    border: solid black;
+    text-align: center;
+    width: 525px;
+    height: 400px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+#signs{
+    text-align: center;
+}
+
+
+#choose {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(0, 191, 255);
+}
+
+#fist, #hiFive, #peace {
+    background-color: lightgray;
+    border: 2px solid;
+    width: 80px;
+    height: 80px;
+    border-radius: 250px;
+    font-size: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.players {
+    display: flex;
+}
+
+#computerDisplay, #playerDisplay {
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+#resultDisplay {
+    text-align: center;
+    font-size: 32px;
+}
+
+.scoreDisplay {
+    text-align: center;
+    font-size: 18px;
+}
+
+#signs button:hover {
+    transform: scale(1.05);
+    border: solid rgb(0, 191, 255);
+    background-color: white;
+}
+
+/* Tic - Tac - Toe */
+
+.ticPage {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #56ab2f, #a8e063);
+
+}
+
+.ticPage h1 {
+    color: white;
+    padding: 20px;
+}
+
+.box {
+    width: 75px;
+    height: 75px;
+    border: 2px solid white;
+    line-height: 75px;
+    box-shadow: 0 0 0 2px;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+#container5 {
+    text-align: center;
+    font-family: monospace;
+    width: 100%;
+}
+
+#cellContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 225px;
+    color: white;
+    margin: auto;
+}
+
+#message {
+    font-size: 28px;
+    color: white;
+}
+
+#resetBtn {
+    width: 100px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+}
+
+#resetBtn:hover {
+    transform: scale(1.05);
+    border: solid rgb(255, 255, 255);
+}
